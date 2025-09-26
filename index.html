@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Login Demo</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; margin:0;
+    }
+    #user {
+        width: 340px;
+    }
+    #pw {
+        width: 340px;
+    }
+    .wrap {
+      background:white; border-radius:12px; padding:24px;
+      box-shadow:0 6px 20px rgba(0,0,0,.15); width:100%; max-width:360px;
+    }
+    h1 { font-size:22px; margin:0 0 18px; text-align:center; }
+    label { display:block; margin:12px 0 6px; font-weight:600; }
+    input {
+      width:100%; padding:10px; font-size:15px;
+      border:1px solid #ccc; border-radius:6px;
+    }
+    button {
+      margin-top:18px; width:100%; padding:10px;
+      border:0; border-radius:6px; cursor:pointer;
+      background:#5563DE; color:white; font-weight:600; font-size:16px;
+      transition: background .2s;
+    }
+    button:hover { background:#3541c9; }
+    .output {
+      margin-top:16px; font-size:14px; color:#333;
+      background:#f6f6f6; padding:10px; border-radius:6px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Login Demo</h1>
+    <label for="user">Username</label>
+    <input id="user" type="text" placeholder="Enter username" />
+
+    <label for="pw">Password</label>
+    <input id="pw" type="password" placeholder="Enter password" />
+
+    <button onclick="submitLogin()">Sign in</button>
+
+    <div id="result" class="output" style="display:none"></div>
+  </div>
+
+  <script>
+    function submitLogin(){
+      const u = document.getElementById("user").value.trim();
+      const p = document.getElementById("pw").value;
+      if(!u || !p){ alert("Please enter both username and password"); return; }
+
+      // 結果を画面に表示
+      const result = document.getElementById("result");
+      result.style.display = "block";
+      result.textContent = "Entered → Username: " + u + " | Password: " + p;
+    }
+  </script>
+</body>
+</html>
